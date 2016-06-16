@@ -90,4 +90,6 @@ ii) git checkout -b new-branch-name master
 
 git log branch-B ^branch-A
 
+<branch_diff.PNG>
+
 >>>>>>>$$$$$$$$$>>>>>>>>>
