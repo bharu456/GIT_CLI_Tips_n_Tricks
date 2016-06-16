@@ -1,4 +1,5 @@
-Below commands are tested in tcsh environment.
+Below commands are tested in mixed shell environment, primarily, bash or tcsh:
+==============================================================================
 
 1. Howto add all untracked files automatically to the index / staging area:
 
@@ -6,19 +7,27 @@ git status | grep "^?" | awk '{print $NF}' | git add
 
 <add_untracked_files.PNG>
 
+>>>>>>>$$$$$$$$$>>>>>>>>>
+
 2. In a particular git project, howto collect all commits with changed files:
 
 git log --name-only 
 
 <gitlog_files_commit.PNG>
 
+>>>>>>>$$$$$$$$$>>>>>>>>>
+
 3. Howto create bzipped tarball archive of source code but exclude .git, .gitignore and custom directories:
 
 <workspace_dirname>tar cjf /path/to/store/source.tar.bz2 --exclude-vcs -X /path/to/exclude.list .
 
+>>>>>>>$$$$$$$$$>>>>>>>>>
+
 4. Howto collect all unmerged changes on a particular branch pushed by user X:
 
 ssh remote-name gerrit query owner:userid status:open branch:/name/branch
+
+>>>>>>>$$$$$$$$$>>>>>>>>>
 
 5. Given a list of CRs, cherry picking of patches can be automated.
 
@@ -33,6 +42,8 @@ git fetch ssh://userid@gerrit.url.address.com:port_number <project_name> <refs_v
 NOTE:
     With cherry pick command, -x flag is recommended as it helps to trace back the commit that was cherry picked.
 
+>>>>>>>$$$$$$$$$>>>>>>>>>
+
 6. How to parse manifest XML from command line:
 
 cat /path/to//manifest/xml | grep -needed-flags <pattern-to-search>
@@ -45,14 +56,38 @@ xpath -q -q //manifest /path/to/manifest/xml | grep -needed-flags <pattern-to-se
 
 Last of these commands, xpath, is written using XML::XPath Perl module to parse XML files. It tries to comply with XPath specs of WWW3.
 
+>>>>>>>$$$$$$$$$>>>>>>>>>
+
 7. Quick stats on each commit when running git log:
 
 git log --stat
+
+>>>>>>>$$$$$$$$$>>>>>>>>>
 
 8. Show git log by decorating all the branches and tags but as oneline in graphical format
 
 git log --decorate --graph --oneline --all
 
+>>>>>>>$$$$$$$$$>>>>>>>>>
+
 9. Incase, you missed the SHA1 id of the commit (done to your local repo and not pushed yet to the remote) after doing git reset --hard, you can get it back using:
 
 git reflog
+
+>>>>>>>$$$$$$$$$>>>>>>>>>
+
+10. Different ways to switch branches (assuming current branch is 'master'):
+
+i) git checkout master ; git branch new-branch-name ; git checkout new-branch-name
+
+ii) git checkout master ; git checkout -b new-branch-name
+
+ii) git checkout -b new-branch-name master
+
+>>>>>>>$$$$$$$$$>>>>>>>>>
+
+11. What commits are available in branch B but not in branch A?
+
+git log branch-B ^branch-A
+
+>>>>>>>$$$$$$$$$>>>>>>>>>
