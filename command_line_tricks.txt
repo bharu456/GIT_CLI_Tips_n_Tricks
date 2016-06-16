@@ -44,3 +44,15 @@ xpath -q -q //manifest /path/to/manifest/xml | grep -needed-flags <pattern-to-se
 <CLI_parse_manifest.PNG>
 
 Last of these commands, xpath, is written using XML::XPath Perl module to parse XML files. It tries to comply with XPath specs of WWW3.
+
+7. Quick stats on each commit when running git log:
+
+git log --stat
+
+8. Show git log by decorating all the branches and tags but as oneline in graphical format
+
+git log --decorate --graph --oneline --all
+
+9. Incase, you missed the SHA1 id of the commit (done to your local repo and not pushed yet to the remote) after doing git reset --hard, you can get it back using:
+
+git reflog
